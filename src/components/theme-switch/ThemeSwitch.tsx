@@ -3,7 +3,7 @@
 import { Icons } from '@/components/Icons'
 import MenuItem from '@/components/theme-switch/MenuItem'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from '@/components/ui/DropdownMenu'
-import { Button } from '@/components/ui/button'
+import { Button } from '@/components/ui/Button'
 import { LucideProps } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import { FC, useEffect, useState } from 'react'

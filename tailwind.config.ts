@@ -82,7 +82,7 @@ const config: Config = {
                 DEFAULT: '#ffffff',
                 foreground: '#020817',
               },
-              navigation: '#f0f4f9',
+              navigation: '#f1f5f9',
             },
           },
         },

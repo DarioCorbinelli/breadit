@@ -11,7 +11,7 @@ const Navbar: FC<NavbarProps> = ({}) => {
   return <div className='bg-navigation border-b py-2'>
     <div className='container flex justify-between items-center'>
       {/* logo */}
-      <Link href="/" className='flex items-center gap-2'>
+      <Link href="/" className='flex items-center gap-2 outline-offset-4'>
         <Icons.logo className='w-8 lg:w-6' />
         <span className='hidden lg:block text-sm'>Breadit</span>
       </Link>
