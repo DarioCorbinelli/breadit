@@ -1,6 +1,6 @@
 import { db } from "@/lib/db"
 import { PrismaAdapter } from "@auth/prisma-adapter"
-import type {AuthOptions} from "next-auth"
+import {getServerSession, type AuthOptions} from "next-auth"
 import GoogleProvider from "next-auth/providers/google"
 import {nanoid} from "nanoid"
 
@@ -49,3 +49,5 @@ export const authOptions: AuthOptions = {
     }
   }
 }
+
+export const getAuthSession = () => getServerSession(authOptions)

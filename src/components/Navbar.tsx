@@ -1,29 +1,39 @@
+import AccountNav from '@/components/AccountNav'
 import { Icons } from '@/components/Icons'
 import ThemeSwitcher from '@/components/ThemeSwitch'
+import { buttonVariants } from '@/components/ui/Button'
+import { getAuthSession } from '@/lib/auth'
 import Link from 'next/link'
 import { FC } from 'react'
 
-interface NavbarProps {
-  
-}
+interface NavbarProps {}
 
-const Navbar: FC<NavbarProps> = ({}) => {
-  return <div className='bg-navigation border-b py-2'>
-    <div className='container flex justify-between items-center'>
-      {/* logo */}
-      <Link href="/" className='flex items-center gap-2 outline-offset-4'>
-        <Icons.logo className='w-8 lg:w-6' />
-        <span className='hidden lg:block text-sm'>Breadit</span>
-      </Link>
+const Navbar: FC<NavbarProps> = async ({}) => {
+  const session = await getAuthSession()
 
-      {/* search bar */}
+  return (
+    <div className='bg-navigation border-b py-2'>
+      <div className='container flex justify-between items-center'>
+        {/* logo */}
+        <Link href='/' className='flex items-center gap-2 outline-offset-4'>
+          <Icons.logo className='w-8 lg:w-6' />
+          <span className='hidden lg:block text-sm'>Breadit</span>
+        </Link>
 
-      {/* account */}
-      <div>
-        <ThemeSwitcher />
+        {/* search bar */}
+
+        {/* account */}
+        <div className='flex items-center gap-4'>
+          <ThemeSwitcher />
+          {session ? (
+            <AccountNav />
+          ) : (
+            <Link href='/sign-in' className={buttonVariants({size: 'sm'})}>Accedi</Link>
+          )}
+        </div>
       </div>
     </div>
-  </div>
+  )
 }
 
 export default Navbar
