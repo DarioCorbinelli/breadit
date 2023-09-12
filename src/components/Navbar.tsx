@@ -1,5 +1,5 @@
 import { Icons } from '@/components/Icons'
-import ThemeSwitcher from '@/components/theme-switch/ThemeSwitch'
+import ThemeSwitcher from '@/components/ThemeSwitch'
 import Link from 'next/link'
 import { FC } from 'react'
 

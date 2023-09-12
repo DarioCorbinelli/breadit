@@ -1,12 +1,11 @@
 'use client'
 
 import { Icons } from '@/components/Icons'
-import MenuItem from '@/components/theme-switch/MenuItem'
-import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from '@/components/ui/DropdownMenu'
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/DropdownMenu'
 import { Button } from '@/components/ui/Button'
 import { LucideProps } from 'lucide-react'
 import { useTheme } from 'next-themes'
-import { FC, useEffect, useState } from 'react'
+import { FC, ReactNode, useEffect, useState } from 'react'
 
 interface ThemeSwitchProps {}
 
@@ -42,3 +41,29 @@ const ThemeSwitch: FC<ThemeSwitchProps> = ({}) => {
 }
 
 export default ThemeSwitch
+
+
+
+// ----------------------------------------------------------------------------------------
+// MENU ITEM ------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------------
+
+interface MenuItemProps {
+  theme: 'light' | 'dark' | 'system'
+  children: ReactNode
+}
+
+const MenuItem: FC<MenuItemProps> = ({ theme, children }) => {
+  const {setTheme} = useTheme()
+
+  let Icon: FC<LucideProps> = Icons.sun
+  if (theme === 'dark') Icon = Icons.moon
+  else if (theme === 'system') Icon = Icons.system
+
+  return (
+    <DropdownMenuItem className='gap-2' onClick={() => setTheme(theme)}>
+      <Icon className='h-5 w-5' />
+      <p className='text-sm'>{children}</p>
+    </DropdownMenuItem>
+  )
+}
