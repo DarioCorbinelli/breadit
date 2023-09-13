@@ -8,18 +8,6 @@ datasource db {
   relationMode = "prisma"
 }
 
-model User {
-  id            String    @id @default(cuid())
-  name          String?
-  email         String?   @unique
-  emailVerified DateTime?
-  image         String?
-  accounts      Account[]
-  sessions      Session[]
-
-  username String? @unique
-}
-
 model Account {
   id                String  @id @default(cuid())
   userId            String
@@ -53,4 +41,105 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+enum VoteType {
+  UP
+  DOWN
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?
+  accounts      Account[]
+  sessions      Session[]
+
+  username String? @unique
+
+  ownedSubreddits Subreddit[] @relation("owner")
+  joinedSubreddits Subreddit[]
+  posts Post[]
+  comments Comment[]
+}
+
+model Subreddit {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  owner User @relation("owner", fields: [ownerId], references: [id])
+  ownerId String
+  
+  subscribers User[]
+
+  posts Post[]
+
+  @@index([ownerId])
+}
+
+model Post {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  authorId String
+  author User @relation(fields: [authorId], references: [id])
+
+  subredditId String
+  subreddit Subreddit @relation(fields: [subredditId], references: [id])
+
+  votes PostVote[]
+  comments Comment[]
+
+  @@index([authorId])
+  @@index([subredditId])
+}
+
+model PostVote {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  postId String
+  post Post @relation(fields: [postId], references: [id])
+
+  type VoteType
+
+  @@index([postId])
+}
+
+model Comment {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  authorId String
+  author User @relation(fields: [authorId], references: [id])
+
+  postId String
+  post Post @relation(fields: [postId], references: [id])
+
+  replyToId String?
+  replyTo Comment? @relation("replyTo", fields: [replyToId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  replies Comment[] @relation("replyTo")
+
+  votes CommentVote[]
+
+  @@index([authorId])
+  @@index([postId])
+  @@index([replyToId])
+}
+
+model CommentVote {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  commentId String
+  comment Comment @relation(fields: [commentId], references: [id])
+
+  @@index([commentId])
 }
