@@ -1,4 +1,4 @@
-import { Laptop, Loader2, LogOut, LucideProps, Moon, Sun, User } from 'lucide-react'
+import { Home, Laptop, Loader2, LogOut, LucideProps, Moon, Sun, User } from 'lucide-react'
 
 export const Icons = {
   logo: (props: LucideProps) => (
@@ -23,5 +23,6 @@ export const Icons = {
   system: Laptop,
   loader: Loader2,
   user: User,
-  logout: LogOut
+  logout: LogOut,
+  home: Home
 }

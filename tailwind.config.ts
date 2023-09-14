@@ -42,6 +42,8 @@ const config: Config = {
   },
   plugins: [
     require('tailwindcss-animate'),
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/typography'),
     themeSwapper({
       themes: [
         {
@@ -59,7 +61,7 @@ const config: Config = {
                 foreground: '#f8fafc',
               },
               secondary: {
-                DEFAULT: '#f1f5f9',
+                DEFAULT: '#cef5e6',
                 foreground: '#f1f5f9',
               },
               destructive: {
@@ -101,7 +103,7 @@ const config: Config = {
                 foreground: '#0f172a',
               },
               secondary: {
-                DEFAULT: '#1e293b',
+                DEFAULT: '#cef5e6',
                 foreground: '#f8fafc',
               },
               destructive: {
