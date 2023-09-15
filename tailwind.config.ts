@@ -93,7 +93,7 @@ const config: Config = {
           selectors: ['[data-theme="dark"]'],
           theme: {
             colors: {
-              border: '#111822', /*'#1e293b' original*/
+              border: '#1e293b',
               input: '#1e293b',
               ring: '#cbd5e1',
               background: '#020817',
@@ -103,7 +103,7 @@ const config: Config = {
                 foreground: '#0f172a',
               },
               secondary: {
-                DEFAULT: '#cef5e6',
+                DEFAULT: '#002326', /*#00281c*/
                 foreground: '#f8fafc',
               },
               destructive: {

@@ -9,7 +9,7 @@ export default function Home() {
       <h1 className='text-4xl font-bold'>Il tuo feed</h1>
       <div className='grid grid-cols-1 md:grid-cols-[2fr,1fr] gap-y-4 gap-x-4 mt-4'>
         <div>posts</div>
-        <div className='border rounded-md order-first md:order-last'>
+        <div className='border rounded-md order-first md:order-last overflow-hidden'>
           <div className='p-4 bg-secondary border-b'>
             <p className='flex items-center gap-1 font-medium'>
               <Icons.home className='h-4 w-4' />
