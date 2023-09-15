@@ -70,11 +70,11 @@ const config: Config = {
               },
               muted: {
                 DEFAULT: '#f1f5f9',
-                foreground: '#64748b',
+                foreground: '#4b5770',
               },
               accent: {
                 DEFAULT: '#f1f5f9',
-                foreground: '#64748b',
+                foreground: '#4b5770',
               },
               popover: {
                 DEFAULT: '#ffffff',

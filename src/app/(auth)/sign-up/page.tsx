@@ -10,7 +10,7 @@ const page: FC<pageProps> = async ({}) => {
 
   if (session) redirect('/')
 
-  return <UserAuth type='signIn' />
+  return <UserAuth type='signUp' />
 }
 
 export default page
