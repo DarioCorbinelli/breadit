@@ -9,7 +9,7 @@ interface layoutProps {
 
 const layout: FC<layoutProps> = ({ children }) => {
   return (
-    <div className='max-w-2xl mx-auto absolute inset-0 flex flex-col justify-center gap-24'>
+    <div className='max-w-2xl mx-auto absolute inset-y-0 inset-x-4 flex flex-col justify-center gap-24'>
       <div className='relative'>
         <Link href='/' className={buttonVariants({ variant: 'ghost', className: 'gap-1 self-start absolute -top-[10rem]' })}>
           <Icons.back className='h-4 w-4' />

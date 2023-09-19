@@ -12,7 +12,7 @@ const Navbar: FC<NavbarProps> = async ({}) => {
   const session = await getAuthSession()
 
   return (
-    <div className='bg-navigation border-b py-2'>
+    <div className='bg-navigation border-b py-2 relative z-10 '>
       <div className='container flex justify-between items-center'>
         {/* logo */}
         <Link href='/' className='flex items-center gap-2 outline-offset-4'>
@@ -28,7 +28,9 @@ const Navbar: FC<NavbarProps> = async ({}) => {
           {session ? (
             <AccountNav />
           ) : (
-            <Link href='/sign-in' className={buttonVariants({size: 'sm'})}>Accedi</Link>
+            <Link href='/sign-in' className={buttonVariants({ size: 'sm' })}>
+              Accedi
+            </Link>
           )}
         </div>
       </div>
