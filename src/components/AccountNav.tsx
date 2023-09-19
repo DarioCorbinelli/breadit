@@ -13,7 +13,7 @@ interface AccountNavProps {
 
 const AccountNav: FC<AccountNavProps> = ({}) => {
   const {data: session} = useSession()
-
+  
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className='rounded-full'>
