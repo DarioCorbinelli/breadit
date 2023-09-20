@@ -5,6 +5,7 @@ import { Inter } from 'next/font/google'
 
 import '@/styles/globals.scss'
 import { cn } from '@/lib/utils'
+import { Toaster } from '@/components/ui/Toaster'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -26,6 +27,7 @@ export default function RootLayout({
         <Providers>
           <Navbar />
           {authModal}
+          <Toaster />
           <div className='container pt-8 flex-1'>{children}</div>
         </Providers>
       </body>
