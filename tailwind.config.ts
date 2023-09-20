@@ -85,6 +85,7 @@ const config: Config = {
                 foreground: '#020817',
               },
               navigation: '#f1f5f9',
+              overlay: "#020817"
             },
           },
         },
@@ -127,6 +128,7 @@ const config: Config = {
                 foreground: '#f8fafc',
               },
               navigation: '#050E1E',
+              overlay: "#B0B3B6"
             },
           },
         },

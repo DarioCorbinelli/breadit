@@ -19,7 +19,7 @@ const ThemeSwitch: FC<ThemeSwitchProps> = ({}) => {
 
   if (!isMounted)
     return (
-      <Button variant='ghost' size='icon'>
+      <Button variant='ghost' size='icon' disabled>
         <Icons.loader className='h-5 w-5 animate-spin' />
       </Button>
     )
