@@ -7,9 +7,11 @@ import { cn } from '@/lib/utils'
 import { signIn } from 'next-auth/react'
 import { FC, HTMLAttributes, useState } from 'react'
 
-interface UserAuthFormProps extends HTMLAttributes<HTMLDivElement> {}
+interface UserAuthFormProps extends HTMLAttributes<HTMLDivElement> {
+  redirectUrl?: string
+}
 
-const UserAuthForm: FC<UserAuthFormProps> = ({className, ...props}) => {
+const UserAuthForm: FC<UserAuthFormProps> = ({className, redirectUrl, ...props}) => {
   const [isLoading, setIsLoading] = useState(false)
   const {toast} = useToast()
 
@@ -17,7 +19,7 @@ const UserAuthForm: FC<UserAuthFormProps> = ({className, ...props}) => {
     setIsLoading(true)
 
     try {
-      await signIn('google', {callbackUrl: window.location.origin})
+      await signIn('google', {callbackUrl: window.location.origin + (redirectUrl ? `${redirectUrl}` : "")})
     } catch (e) {
       toast({
         variant: "destructive",
