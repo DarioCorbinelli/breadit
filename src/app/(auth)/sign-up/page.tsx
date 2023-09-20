@@ -12,7 +12,7 @@ const page: FC<pageProps> = async ({ searchParams }) => {
 
   if (session) redirect(searchParams.redirectUrl || '/')
 
-  return <UserAuth type='signIn' redirectUrl={searchParams.redirectUrl} />
+  return <UserAuth type='signUp' redirectUrl={searchParams.redirectUrl} />
 }
 
 export default page
