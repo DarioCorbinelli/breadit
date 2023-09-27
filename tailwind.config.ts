@@ -73,7 +73,7 @@ const config: Config = {
                 foreground: '#6b7280',
               },
               accent: {
-                DEFAULT: '#f1f5f9',
+                DEFAULT: '#f4f4f5',
                 foreground: '#4b5770',
               },
               popover: {
