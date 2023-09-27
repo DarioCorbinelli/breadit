@@ -59,20 +59,21 @@ model User {
 
   username String? @unique
 
-  ownedSubreddits Subreddit[] @relation("owner")
+  ownedSubreddits  Subreddit[] @relation("owner")
   joinedSubreddits Subreddit[]
-  posts Post[]
-  comments Comment[]
+  posts            Post[]
+  comments         Comment[]
 }
 
 model Subreddit {
   id        String   @id @default(cuid())
+  name      String   @unique
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  owner User @relation("owner", fields: [ownerId], references: [id])
+  owner   User   @relation("owner", fields: [ownerId], references: [id])
   ownerId String
-  
+
   subscribers User[]
 
   posts Post[]
@@ -86,12 +87,12 @@ model Post {
   updatedAt DateTime @updatedAt
 
   authorId String
-  author User @relation(fields: [authorId], references: [id])
+  author   User   @relation(fields: [authorId], references: [id])
 
   subredditId String
-  subreddit Subreddit @relation(fields: [subredditId], references: [id])
+  subreddit   Subreddit @relation(fields: [subredditId], references: [id])
 
-  votes PostVote[]
+  votes    PostVote[]
   comments Comment[]
 
   @@index([authorId])
@@ -104,7 +105,7 @@ model PostVote {
   updatedAt DateTime @updatedAt
 
   postId String
-  post Post @relation(fields: [postId], references: [id])
+  post   Post   @relation(fields: [postId], references: [id])
 
   type VoteType
 
@@ -117,14 +118,14 @@ model Comment {
   updatedAt DateTime @updatedAt
 
   authorId String
-  author User @relation(fields: [authorId], references: [id])
+  author   User   @relation(fields: [authorId], references: [id])
 
   postId String
-  post Post @relation(fields: [postId], references: [id])
+  post   Post   @relation(fields: [postId], references: [id])
 
   replyToId String?
-  replyTo Comment? @relation("replyTo", fields: [replyToId], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  replies Comment[] @relation("replyTo")
+  replyTo   Comment?  @relation("replyTo", fields: [replyToId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  replies   Comment[] @relation("replyTo")
 
   votes CommentVote[]
 
@@ -139,7 +140,7 @@ model CommentVote {
   updatedAt DateTime @updatedAt
 
   commentId String
-  comment Comment @relation(fields: [commentId], references: [id])
+  comment   Comment @relation(fields: [commentId], references: [id])
 
   @@index([commentId])
 }

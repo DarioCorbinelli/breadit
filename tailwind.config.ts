@@ -54,7 +54,7 @@ const config: Config = {
               border: '#e2e8f0',
               input: '#e2e8f0',
               ring: '#020817',
-              background: '#ffffff',
+              background: '#fafafa',
               foreground: '#020817',
               primary: {
                 DEFAULT: '#0f172a',
@@ -84,7 +84,7 @@ const config: Config = {
                 DEFAULT: '#ffffff',
                 foreground: '#020817',
               },
-              navigation: '#f1f5f9',
+              navigation: '#f4f4f5',
               overlay: "#020817"
             },
           },
@@ -97,7 +97,7 @@ const config: Config = {
               border: '#1e293b',
               input: '#1e293b',
               ring: '#cbd5e1',
-              background: '#020817',
+              background: '#020b18',
               foreground: '#f8fafc',
               primary: {
                 DEFAULT: '#f8fafc',
