@@ -62,7 +62,7 @@ const config: Config = {
               },
               secondary: {
                 DEFAULT: '#cef5e6',
-                foreground: '#f1f5f9',
+                foreground: '#374151',
               },
               destructive: {
                 DEFAULT: '#ef4444',
@@ -70,7 +70,7 @@ const config: Config = {
               },
               muted: {
                 DEFAULT: '#f1f5f9',
-                foreground: '#4b5770',
+                foreground: '#6b7280',
               },
               accent: {
                 DEFAULT: '#f1f5f9',
@@ -105,7 +105,7 @@ const config: Config = {
               },
               secondary: {
                 DEFAULT: '#002326', /*#00281c*/
-                foreground: '#f8fafc',
+                foreground: '#b7c7d6',
               },
               destructive: {
                 DEFAULT: '#7f1d1d',

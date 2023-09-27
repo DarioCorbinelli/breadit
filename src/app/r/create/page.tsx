@@ -60,7 +60,7 @@ const page: FC<pageProps> = ({}) => {
         variant: 'destructive',
       })
     },
-    onSuccess: (subredditName) => alert(`will be forwarded to /r/${subredditName}`),
+    onSuccess: (subredditName) => router.push(`/r/${subredditName}`),
   })
 
   const formSubmitter = async (data: CreateSubredditPayload) => createSubreddit(data)
