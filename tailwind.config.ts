@@ -52,17 +52,17 @@ const config: Config = {
           theme: {
             colors: {
               border: '#e2e8f0',
-              input: '#e2e8f0',
+              input: '#f1f5f9',
               ring: '#020817',
-              background: '#fafafa',
-              foreground: '#020817',
+              background: '#f8fafc',
+              foreground: '#020617',
               primary: {
                 DEFAULT: '#0f172a',
                 foreground: '#f8fafc',
               },
               secondary: {
-                DEFAULT: '#cef5e6',
-                foreground: '#374151',
+                DEFAULT: '#bae6fd',
+                foreground: '#334155',
               },
               destructive: {
                 DEFAULT: '#ef4444',
@@ -70,21 +70,21 @@ const config: Config = {
               },
               muted: {
                 DEFAULT: '#f1f5f9',
-                foreground: '#6b7280',
+                foreground: '#64748b',
               },
               accent: {
-                DEFAULT: '#f4f4f5',
-                foreground: '#4b5770',
+                DEFAULT: '#f1f5f9',
+                foreground: '#475569',
               },
               popover: {
                 DEFAULT: '#ffffff',
-                foreground: '#020817',
+                foreground: '#020617',
               },
               card: {
                 DEFAULT: '#ffffff',
-                foreground: '#020817',
+                foreground: '#020617',
               },
-              navigation: '#f4f4f5',
+              navigation: '#f1f5f9',
               overlay: "#020817"
             },
           },
@@ -97,15 +97,15 @@ const config: Config = {
               border: '#1e293b',
               input: '#1e293b',
               ring: '#cbd5e1',
-              background: '#050e1e',
+              background: '#0f172a',
               foreground: '#f8fafc',
               primary: {
                 DEFAULT: '#f8fafc',
                 foreground: '#0f172a',
               },
               secondary: {
-                DEFAULT: '#002326', /*#00281c*/
-                foreground: '#b7c7d6',
+                DEFAULT: '#082f49',
+                foreground: '#cbd5e1',
               },
               destructive: {
                 DEFAULT: '#7f1d1d',
@@ -120,15 +120,15 @@ const config: Config = {
                 foreground: '#f8fafc',
               },
               popover: {
-                DEFAULT: '#020817',
+                DEFAULT: '#020617',
                 foreground: '#f8fafc',
               },
               card: {
-                DEFAULT: '#020817',
+                DEFAULT: '#020617',
                 foreground: '#f8fafc',
               },
-              navigation: '#0a172c',
-              overlay: "#B0B3B6"
+              navigation: '#1e293b',
+              overlay: "#334155"
             },
           },
         },
