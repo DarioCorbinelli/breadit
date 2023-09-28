@@ -97,7 +97,7 @@ const config: Config = {
               border: '#1e293b',
               input: '#1e293b',
               ring: '#cbd5e1',
-              background: '#020b18',
+              background: '#050e1e',
               foreground: '#f8fafc',
               primary: {
                 DEFAULT: '#f8fafc',
@@ -127,7 +127,7 @@ const config: Config = {
                 DEFAULT: '#020817',
                 foreground: '#f8fafc',
               },
-              navigation: '#050E1E',
+              navigation: '#0a172c',
               overlay: "#B0B3B6"
             },
           },
