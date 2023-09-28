@@ -28,7 +28,7 @@ const layout: FC<layoutProps> = async ({ children, params: { name } }) => {
   return (
     <div className='grid grid-cols-1 md:grid-cols-[2fr,1fr] gap-y-4 gap-x-4'>
       <div>{children}</div>
-      <div className='border rounded-lg overflow-hidden'>
+      <div className='border rounded-lg overflow-hidden hidden md:block'>
         <div className='bg-background p-6'>
           <h3 className='font-semibold'>Abount r/{name}</h3>
         </div>
@@ -45,16 +45,18 @@ const layout: FC<layoutProps> = async ({ children, params: { name } }) => {
             </div>
             <hr />
           </dl>
-          {subreddit.ownerId === session?.user.id ? (
-            <div className='flex justify-between gap-4'>
-              <p className='text-muted-foreground'>Hai creato tu questa community</p>
-            </div>
-          ) : (
-            <JoinLeaveSubreddit isSubscribed={!!subreddit.subscribers.find((sub) => sub.id === session?.user.id)} subredditId={subreddit.id} subredditName={subreddit.name} />
-          )}
-          <Link href={`/r/${name}/submit`} className={buttonVariants({ className: 'w-full', variant: "outline" })}>
-            Scrivi Post
-          </Link>
+          <div>
+            {subreddit.ownerId === session?.user.id ? (
+              <div className='flex justify-between gap-4'>
+                <p className='text-muted-foreground'>Hai creato tu questa community</p>
+              </div>
+            ) : (
+              <JoinLeaveSubreddit isSubscribed={!!subreddit.subscribers.find((sub) => sub.id === session?.user.id)} subredditId={subreddit.id} subredditName={subreddit.name} />
+            )}
+            <Link href={`/r/${name}/submit`} className={buttonVariants({ className: 'w-full mt-2', variant: 'outline' })}>
+              Scrivi Post
+            </Link>
+          </div>
         </div>
       </div>
     </div>
