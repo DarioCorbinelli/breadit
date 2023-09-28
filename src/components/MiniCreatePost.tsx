@@ -20,7 +20,7 @@ const MiniCreatePost: FC<MiniCreatePostProps> = ({ session }) => {
     <li className='bg-card rounded-md shadow px-6 py-4 flex justify-between gap-6'>
       <div className='relative'>
         <UserAvatar user={session?.user} />
-        <span className='absolute block w-3 h-3 bg-green-500 top-0 right-0 rounded-full' />
+        {session?.user && <span className='absolute block w-3 h-3 bg-green-500 top-0 right-0 rounded-full' />}
       </div>
       <Input placeholder='Scrivi post...' readOnly onClick={() => router.push(pathname + '/submit')} />
       <Button size='icon' variant='ghost' onClick={() => router.push(pathname + '/submit')}>
