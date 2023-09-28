@@ -38,7 +38,7 @@ const JoinLeaveSubreddit: FC<JoinLeaveSubredditProps> = ({ isSubscribed, subredd
     },
     onError: (err) => {
       if (err instanceof AxiosError) {
-        if (err.response?.status === 401) return loginToast(`/r/${subredditName}`)
+        if (err.response?.status === 401) return loginToast()
       }
 
       toast({
@@ -68,7 +68,7 @@ const JoinLeaveSubreddit: FC<JoinLeaveSubredditProps> = ({ isSubscribed, subredd
     },
     onError: (err) => {
       if (err instanceof AxiosError) {
-        if (err.response?.status === 401) return loginToast(`/r/${subredditName}`)
+        if (err.response?.status === 401) return loginToast()
       }
 
       toast({

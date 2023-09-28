@@ -1,7 +1,7 @@
 import AccountNav from '@/components/AccountNav'
 import { Icons } from '@/components/Icons'
+import SignInBtn from '@/components/SignInBtn'
 import ThemeSwitcher from '@/components/ThemeSwitch'
-import { buttonVariants } from '@/components/ui/Button'
 import { getAuthSession } from '@/lib/auth'
 import Link from 'next/link'
 import { FC } from 'react'
@@ -28,9 +28,7 @@ const Navbar: FC<NavbarProps> = async ({}) => {
           {session ? (
             <AccountNav />
           ) : (
-            <Link href='/sign-in' className={buttonVariants({ size: 'sm' })}>
-              Accedi
-            </Link>
+            <SignInBtn size="sm" />
           )}
         </div>
       </div>

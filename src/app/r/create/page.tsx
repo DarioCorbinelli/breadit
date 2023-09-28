@@ -34,7 +34,7 @@ const page: FC<pageProps> = ({}) => {
     onError: (err) => {
       if (err instanceof AxiosError) {
         if (err.response?.status === 401) {
-          return loginToast("/r/create")
+          return loginToast()
         }
 
         if (err.response?.status === 409) {
