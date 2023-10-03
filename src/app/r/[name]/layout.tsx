@@ -26,7 +26,7 @@ const layout: FC<layoutProps> = async ({ children, params: { name } }) => {
   if (!subreddit) notFound()
 
   return (
-    <div className='grid grid-cols-1 md:grid-cols-[2fr,1fr] gap-y-4 gap-x-4'>
+    <div className='grid grid-cols-1 md:grid-cols-[2fr,1fr] gap-y-4 gap-x-4 items-start'>
       <div>{children}</div>
       <div className='border rounded-lg overflow-hidden hidden md:block'>
         <div className='bg-background p-6'>
