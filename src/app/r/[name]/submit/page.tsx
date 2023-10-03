@@ -23,8 +23,7 @@ const page: FC<pageProps> = async ({ params: { name: subredditName } }) => {
       <h3 className='border-b w-fit pb-4'>
         <strong>Scrivi Post</strong> in r/{subredditName}
       </h3>
-      <Editor />
-      <Button type='submit' form='post-editor-form' className='w-full'>Posta</Button>
+      <Editor subredditId={subreddit.id} />
     </div>
   )
 }

@@ -7,7 +7,7 @@ export async function POST(req: Request) {
   try {
     // check if logged in
     const session = await getAuthSession()
-    if (!session?.user) return new Response('Unauthorized', { status: 401 })
+    if (!session?.user) return new Response('Unauthenticated', { status: 401 })
 
     // validate req payload
     const body = await req.json()

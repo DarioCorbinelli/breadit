@@ -6,7 +6,7 @@ import { ZodError } from 'zod'
 export async function POST(req: Request) {
   try {
     const session = await getAuthSession()
-    if (!session) return new Response('Unauthorized', { status: 401 })
+    if (!session) return new Response('Unauthenticated', { status: 401 })
 
     const body = await req.json()
     const { subredditId } = JoinLeaveSubredditValidator.parse(body)

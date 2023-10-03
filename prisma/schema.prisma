@@ -95,6 +95,9 @@ model Post {
   votes    PostVote[]
   comments Comment[]
 
+  title   String
+  content Json?
+
   @@index([authorId])
   @@index([subredditId])
 }

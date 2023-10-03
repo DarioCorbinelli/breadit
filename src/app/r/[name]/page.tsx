@@ -11,8 +11,11 @@ interface pageProps {
 const page: FC<pageProps> = async ({ params: { name } }) => {
   const session = await getAuthSession()
 
-  const subreddit = await db.subreddit.findFirst({
+  const subreddit = await db.subreddit.findUnique({
     where: { name },
+    include: {
+      posts: true
+    }
   })
 
   if (!subreddit) notFound()
@@ -22,6 +25,7 @@ const page: FC<pageProps> = async ({ params: { name } }) => {
       <h1 className='font-bold text-3xl md:text-4xl'>r/{subreddit.name}</h1>
       <ul className='mt-8'>
         <MiniCreatePost session={session} />
+        {subreddit.posts.map(post => <div>{post.title}</div> )}
       </ul>
     </>
   )

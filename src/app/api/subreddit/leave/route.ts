@@ -6,7 +6,7 @@ import { ZodError } from 'zod'
 export async function POST(req: Request) {
   try {
     const session = await getAuthSession()
-    if (!session) return new Response('Unauthorized', { status: 401 })
+    if (!session) return new Response('Unauthenticated', { status: 401 })
 
     const body = await req.json()
     const { subredditId } = JoinLeaveSubredditValidator.parse(body)
@@ -24,7 +24,7 @@ export async function POST(req: Request) {
 
     // check if user is owner
     const isOwner = subreddit.ownerId === session.user.id
-    if (isOwner) return new Response('You already the subreddit\'s owner. You can\'t leave', { status: 403 })
+    if (isOwner) return new Response('You\'re the subreddit\'s owner. You can\'t leave', { status: 403 })
 
 
     // check if user is part of subreddit
