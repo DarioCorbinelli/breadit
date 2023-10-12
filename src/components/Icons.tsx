@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils'
-import { ChevronLeft, Home, Laptop, Loader2, LogOut, LucideProps, Moon, Sun, User, X, Image, Link2 } from 'lucide-react'
+import { ChevronLeft, Home, Laptop, Loader2, LogOut, LucideProps, Moon, Sun, User, X, Image, Link2, MessageSquare } from 'lucide-react'
 import { forwardRef } from 'react'
 
 export const Icons = {
@@ -45,5 +45,6 @@ export const Icons = {
   back: ChevronLeft,
   close: X,
   image: Image,
-  link: Link2
+  link: Link2,
+  message: MessageSquare
 }

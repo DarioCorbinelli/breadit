@@ -1,4 +1,6 @@
+import EditorOutput from '@/components/EditorOutput'
 import MiniCreatePost from '@/components/MiniCreatePost'
+import Post from '@/components/Post'
 import { getAuthSession } from '@/lib/auth'
 import { db } from '@/lib/db'
 import { notFound } from 'next/navigation'
@@ -14,7 +16,12 @@ const page: FC<pageProps> = async ({ params: { name } }) => {
   const subreddit = await db.subreddit.findUnique({
     where: { name },
     include: {
-      posts: true
+      posts: {
+        include: {
+          author: true,
+          comments: true
+        }
+      }
     }
   })
 
@@ -23,9 +30,9 @@ const page: FC<pageProps> = async ({ params: { name } }) => {
   return (
     <>
       <h1 className='font-bold text-3xl md:text-4xl'>r/{subreddit.name}</h1>
-      <ul className='mt-8'>
+      <ul className='mt-8 space-y-4'>
         <MiniCreatePost session={session} />
-        {subreddit.posts.map(post => <div>{post.title}</div> )}
+        {subreddit.posts.map(post => <Post key={post.id} subredditName={subreddit.name} {...post} /> )}
       </ul>
     </>
   )
